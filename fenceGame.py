@@ -38,10 +38,12 @@ def makeArena (arenaCenter, arenaSize):
     # WEST GATE
     mc.setBlock(x + l, y + 1, z, block.FENCE_GATE.id, 1)
     # NORTH GATE
-    # mc.setBlock(x, y + 1, z + l + 3, block.OBSIDIAN.id)
     mc.setBlock(x, y + 1, z + l, block.FENCE_GATE.id, 0)
     # SOUTH GATE
     mc.setBlock(x, y + 1, z - l, block.FENCE_GATE.id, 0)
+
+    # Mark direction NORTH
+    mc.setBlock(x, y + 1, z + l + 3, block.OBSIDIAN.id)
 
     # Set a random diamond inside the fence (l - 1 makes it inside)
     l = l - 1
@@ -102,13 +104,13 @@ def catapultPlayer(arenaCenter, arenaSize):
 
     # (re)Start the timer!
     startTime = time.time()
-
 # ------------------------------------------------------------------------------
 
 # ==============================================================================
 # P L A Y   T H E   G A M E
 # ==============================================================================
 mc = minecraft.Minecraft.create()
+# napTime = 1.0
 napTime = 0.1
 timeLimit = 15.0
 startTime = 0.0
